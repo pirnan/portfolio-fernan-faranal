@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fernan N. Farañal — Backend Developer</title>
+<meta name="description" content="Portfolio of Fernan N. Farañal, backend developer specializing in PHP, Node.js, MySQL and cloud-deployed fintech systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}
+if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<style>
+:root{--bg:#f2f4f3;--panel:#fff;--ink:#1d2326;--mute:#5a666b;--line:#d3dad8;--add:#1a7f37;--hash:#9a6700;--link:#0b5fcc;--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;--sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
+[data-theme=dark]{--bg:#1b1d1f;--panel:#232628;--ink:#e6e8e8;--mute:#9aa4a8;--line:#363b3e;--add:#3fb950;--hash:#d29922;--link:#6cb0ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--sans)}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:12px;top:12px;background:var(--panel);padding:6px 10px;z-index:9}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:760px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px}
+.brand{font:500 14px var(--mono);color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{font:400 13px var(--mono);color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--ink)}
+#theme{font:400 12px var(--mono);background:none;color:var(--mute);border:1px solid var(--line);border-radius:6px;padding:3px 10px;cursor:pointer}
+#theme:hover{color:var(--ink);border-color:var(--mute)}
+main{max-width:760px;margin:0 auto;padding:0 20px}
+section{padding:56px 0 8px}
+h1{font:600 clamp(2.2rem,6vw,3.4rem)/1.08 var(--sans);letter-spacing:-.02em;margin:0 0 16px}
+h2{font:500 14px var(--mono);color:var(--mute);margin:0 0 24px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+h2 span{color:var(--add)}
+h3{font:600 18px/1.35 var(--sans);margin:0}
+p{margin:0 0 14px}
+.hero{padding-top:48px}
+.lede{max-width:62ch;font-size:18px}
+.meta{display:flex;gap:6px 24px;flex-wrap:wrap;color:var(--mute);font-size:14px;margin:0 0 24px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.btn{display:inline-block;font:500 14px var(--sans);padding:9px 18px;border-radius:8px;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--panel)}
+.btn:hover{border-color:var(--mute)}
+.btn.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hero-grid{display:grid;grid-template-columns:1fr 150px;gap:28px;align-items:start}
+.photo{width:150px;height:150px;border-radius:12px;border:1px solid var(--line);background:var(--panel);display:flex;align-items:center;justify-content:center;font:500 36px var(--mono);color:var(--mute);overflow:hidden;position:relative}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.term{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font:400 13px/1.8 var(--mono);overflow-x:auto}
+.term .p{color:var(--add)}
+.term .k{color:var(--mute);display:inline-block;min-width:7ch}
+.term a{text-decoration:none;color:var(--ink)}
+.term a:hover{text-decoration:underline}
+.hash{font:500 13px var(--mono);color:var(--hash)}
+.log{border-left:2px solid var(--line);margin-left:7px;padding-left:24px}
+.commit{position:relative;margin:0 0 20px}
+.commit::before{content:"";position:absolute;left:-31px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--hash)}
+.commit[open]::before{background:var(--hash)}
+.commit summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:2px 12px;align-items:baseline}
+.commit summary::-webkit-details-marker{display:none}
+.when{color:var(--mute);font-size:13px}
+.tog{font:400 16px var(--mono);color:var(--mute)}
+.tog::after{content:"+"}
+.commit[open] .tog::after{content:"\2212"}
+.commit h3,.where{grid-column:1/-1}
+.where{color:var(--mute);font-size:14px;margin:0}
+.commit ul{list-style:none;margin:14px 0 0;padding:0}
+.commit li{position:relative;padding-left:22px;margin:0 0 9px;font-size:15px;max-width:68ch}
+.commit li::before{content:"+";position:absolute;left:0;font:500 14px var(--mono);color:var(--add)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.card p{color:var(--mute);margin:8px 0 14px;max-width:62ch}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.tags li{font:400 12px var(--mono);padding:3px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.card .tags{margin-bottom:16px}
+.card+.card{margin-top:16px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.commit li b{font-weight:600}
+dl{margin:0;display:grid;grid-template-columns:180px 1fr;gap:18px 20px}
+dt{font:400 13px/2 var(--mono);color:var(--mute)}
+dd{margin:0}
+.contact a.mail{font:500 20px var(--mono);word-break:break-all}
+footer{max-width:760px;margin:56px auto 0;padding:20px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+@media(max-width:620px){
+.hero-grid{grid-template-columns:1fr}
+.photo{order:-1;width:104px;height:104px;font-size:28px}
+dl{grid-template-columns:1fr;gap:6px}
+dd{margin-bottom:12px}
+nav{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#home">Skip to content</a>
+<header>
+<div class="bar">
+<a class="brand" href="#home">~/fernan</a>
+<nav aria-label="Sections">
+<a href="#experience">experience</a>
+<a href="#projects">projects</a>
+<a href="#skills">skills</a>
+<a href="#education">education</a>
+<a href="#contact">contact</a>
+</nav>
+<button id="theme" type="button" aria-label="Switch color theme">light</button>
+</div>
+</header>
+<main>
+<section id="home" class="hero">
+<div class="hero-grid">
+<div>
+<h1>Fernan N. Farañal</h1>
+<p class="lede">Systems-minded backend developer building and supporting APIs, MySQL databases, and third-party integrations for fintech and remittance platforms, plus the testing, release, and monitoring work around them. I turn business requirements into working solutions and document the work clearly for technical and non-technical readers.</p>
+<div class="meta"><span>Upper Bicutan, Taguig City</span><span>+63 993 732 5325</span><a href="https://github.com/pirnan" target="_blank" rel="noopener">github.com/pirnan</a></div>
+<div class="cta">
+<a class="btn main" href="mailto:fernannagrampa@gmail.com">Email me</a>
+<a class="btn" href="#experience">View work log</a>
+</div>
+</div>
+<div class="photo" aria-hidden="true">FF<img src="profile.jpg" alt="" onerror="this.remove()"></div>
+</div>
+<div class="term" role="img" aria-label="Terminal summary: fernan.faranal, backend developer, PHP, Node.js, MySQL, based in Taguig City, followed by a git log of three jobs">
+<div><span class="p">$</span> whoami</div>
+<div>fernan.faranal</div>
+<div><span class="k">role</span>backend developer</div>
+<div><span class="k">stack</span>php, node, mysql</div>
+<div><span class="k">based</span>taguig city, ph</div>
+<div><span class="p">$</span> git log --oneline</div>
+<div><span class="hash">9f1c2ab</span> <a href="#c1" tabindex="-1">Backend Developer, Petnet</a></div>
+<div><span class="hash">4e7d0c1</span> <a href="#c2" tabindex="-1">Junior Application Developer, Directories Philippines</a></div>
+<div><span class="hash">1a3f88e</span> <a href="#c3" tabindex="-1">Web Developer Intern, Pamana Properties</a></div>
+</div>
+</section>
+
+<section id="experience">
+<h2><span>$</span> git log --graph work</h2>
+<div class="log">
+<details class="commit" id="c1" open>
+<summary><span class="hash">9f1c2ab</span><span class="when">Sep 2023 – Present</span><span class="tog" aria-hidden="true"></span><h3>Backend Developer at Petnet, Inc.</h3><p class="where">Legazpi, Makati City</p></summary>
+<ul>
+<li><b>Requirements to solution:</b> Join requirements gathering, sprint planning, and sprint reviews with project managers, and turn business needs into supportable APIs and database logic for cashflow, KYC, and remittance systems.</li>
+<li><b>Data integration and validation:</b> Integrated remittance and payment partners (GCash, MoneyGram, Viamericas) with Node.js, mapping partner data to internal systems and validating JSON payloads over REST. Tested requests and responses in Postman.</li>
+<li><b>Database and data quality:</b> Design and optimize MySQL databases and queries for cashflow, KYC, and remittance operations, with attention to accuracy and consistency of transactional data.</li>
+<li><b>Automation and monitoring:</b> Run scheduled jobs on Google Cloud Scheduler, monitor and debug production services in Logs Explorer, and deploy and manage services on Google Cloud Run.</li>
+<li><b>Release and QA:</b> Manage version control and CI/CD to dev and production in GitLab, keep quality up with unit and feature tests and team coding standards, and support the Kong to Apigee migration.</li>
+<li><b>Security and compliance:</b> Resolved findings from a VAPT sprint and contributed to a dedicated performance-optimization sprint.</li>
+<li><b>Issue tracking and coordination:</b> Track work in Azure Boards (SBIs and PBIs), coordinating dependencies and progress with project managers and teammates.</li>
+<li><b>Leadership and ownership:</b> Informal Assistant Team Lead for the Cashflow, KYC, and Remittance team, representing it in meetings and huddles when the team leader is away. Volunteered in Jan 2026 to join the Growth team to help explore and adopt NestJS as services move to NestJS with gRPC.</li>
+</ul>
+</details>
+<details class="commit" id="c2">
+<summary><span class="hash">4e7d0c1</span><span class="when">Oct 2022 – Sep 2023</span><span class="tog" aria-hidden="true"></span><h3>Junior Application Developer at Directories Philippines Corp.</h3><p class="where">Makati City</p></summary>
+<ul>
+<li>Built backend and frontend features for the company website in PHP (Laravel) and Ruby on Rails, including Google Maps API integration and email sending.</li>
+<li>Wrote optimized queries, used Git for version control, and worked with QA specialists to test output and fix errors.</li>
+</ul>
+</details>
+<details class="commit" id="c3">
+<summary><span class="hash">1a3f88e</span><span class="when">Apr 2022 – Jul 2022</span><span class="tog" aria-hidden="true"></span><h3>Web Developer Intern at Pamana Properties Corporation</h3><p class="where">Binondo, Manila</p></summary>
+<ul>
+<li>Supported web development and marketing tasks, including logo creation and image editing in Adobe Photoshop, while learning best practices from senior developers.</li>
+</ul>
+</details>
+</div>
+</section>
+
+<section id="projects">
+<h2><span>$</span> ls side-projects/</h2>
+<div class="card">
+<h3>Queuing SaaS (B2B2C)</h3>
+<p>A queueing web app that shows the line in 3D, with miniature people standing in queue as it moves.</p>
+<ul class="tags"><li>React</li><li>React Three Fiber</li><li>Firebase</li></ul>
+<div class="links"><a class="btn main" href="https://queuing-app-fb9ee.web.app/" target="_blank" rel="noopener">Open live demo</a><a class="btn" href="https://github.com/pirnan/Queuing-SaaS-B2B2C" target="_blank" rel="noopener">View source</a></div>
+</div>
+<div class="card">
+<h3>Dishtansya API</h3>
+<p>A food delivery backend in Laravel. Guests register, registered users log in and receive a JWT, and an authenticated order endpoint checks stock, places the order, and deducts the quantity from the product.</p>
+<ul class="tags"><li>Laravel</li><li>REST API</li><li>JWT auth</li><li>Database seeders</li><li>Unit tests</li></ul>
+<div class="links"><a class="btn" href="https://github.com/pirnan/Dishtansya-API" target="_blank" rel="noopener">View source</a></div>
+</div>
+</section>
+
+<section id="skills">
+<h2><span>$</span> cat stack.txt</h2>
+<dl>
+<dt>data and integration</dt><dd><ul class="tags"><li>MySQL</li><li>MySQL Workbench</li><li>SQL query optimization</li><li>JSON</li><li>REST APIs</li><li>Third-party API integration</li><li>Scheduled jobs (Cloud Scheduler)</li><li>Postman</li></ul></dd>
+<dt>quality and operations</dt><dd><ul class="tags"><li>Unit and feature testing</li><li>QA collaboration</li><li>GitLab CI/CD</li><li>Dev and production deployment</li><li>Log monitoring (GCP Logs Explorer)</li><li>VAPT remediation</li></ul></dd>
+<dt>project and delivery</dt><dd><ul class="tags"><li>Agile Scrum</li><li>Azure Boards (SBIs and PBIs)</li><li>Requirements gathering</li><li>Sprint planning and reviews</li><li>Stakeholder coordination</li></ul></dd>
+<dt>backend</dt><dd><ul class="tags"><li>PHP (Laravel, Lumen, Yii)</li><li>Node.js</li><li>NestJS (in progress)</li><li>Ruby on Rails</li><li>Python</li><li>Java</li><li>C++</li><li>Cobol</li></ul></dd>
+<dt>frontend</dt><dd><ul class="tags"><li>JavaScript</li><li>React</li><li>React Three Fiber</li><li>jQuery</li><li>Vue.js (minor)</li><li>CSS</li><li>Bootstrap</li></ul></dd>
+<dt>cloud and api</dt><dd><ul class="tags"><li>Google Cloud Run</li><li>GCP (Cloud Scheduler, Logs Explorer, Cloud Storage)</li><li>Firebase</li><li>Apigee</li><li>Kong</li></ul></dd>
+</dl>
+</section>
+
+<section id="education">
+<h2><span>$</span> git tag --list education</h2>
+<h3>Bachelor of Science in Information Technology</h3>
+<p style="color:var(--mute);margin-top:4px">Polytechnic University of the Philippines, S/Y 2019–2022, Dean’s Lister</p>
+</section>
+
+<section id="contact" class="contact">
+<h2><span>$</span> git push --contact</h2>
+<h3 style="font-size:24px;margin-bottom:10px">Let’s build something</h3>
+<p>Open to backend and full-stack opportunities. Reach out by email or phone.</p>
+<p><a class="mail" href="mailto:fernannagrampa@gmail.com">fernannagrampa@gmail.com</a></p>
+<p style="color:var(--mute)">+63 993 732 5325<br>Upper Bicutan, Taguig City<br><a href="https://github.com/pirnan" target="_blank" rel="noopener">github.com/pirnan</a></p>
+</section>
+</main>
+<footer>© 2026 Fernan N. Farañal. Built with HTML and CSS.</footer>
+<script>
+(function(){
+var b=document.getElementById('theme'),r=document.documentElement;
+function sync(){b.textContent=r.getAttribute('data-theme')==='dark'?'light':'dark'}
+b.addEventListener('click',function(){
+var n=r.getAttribute('data-theme')==='dark'?'light':'dark';
+r.setAttribute('data-theme',n);
+try{localStorage.setItem('theme',n)}catch(e){}
+sync()});
+sync();
+var links=document.querySelectorAll('.term a');
+for(var i=0;i<links.length;i++){links[i].addEventListener('click',function(e){
+var d=document.querySelector(this.getAttribute('href'));if(d&&d.tagName==='DETAILS'){d.open=true}})}
+})();
+</script>
+</body>
+</html>
